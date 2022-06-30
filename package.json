@@ -20,7 +20,9 @@
     "email": "thallesgabriel1307@gmail.com"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "style": "prettier --ignore-path .gitignore --check **/*.ts",
+    "style:fix": "prettier --ignore-path .gitignore --write **/*.ts"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.30.0",
