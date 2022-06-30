@@ -20,11 +20,15 @@
     "email": "thallesgabriel1307@gmail.com"
   },
   "scripts": {
-    "test": "jest",
     "style": "prettier --ignore-path .gitignore --check **/*.ts",
     "style:fix": "prettier --ignore-path .gitignore --write **/*.ts",
     "lint": "eslint --ignore-path .gitignore src tests --ext .ts",
-    "lint:fix": "eslint --ignore-path .gitignore src --ext .ts --fix"
+    "lint:fix": "eslint --ignore-path .gitignore src --ext .ts --fix",
+    "test": "jest --passWithNoTests --noStackTrace --runInBand --no-cache",
+    "test:ci": "yarn test --coverage",
+    "test:unit": "yarn test --watch -c jest-unit-config.js",
+    "test:integration": "yarn test --watch -c jest-integration-config.js",
+    "test:e2e": "yarn test -c jest-e2e-config.js"
   },
   "devDependencies": {
     "@types/jest": "^28.1.4",
