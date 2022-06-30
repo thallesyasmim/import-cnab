@@ -1,7 +1,7 @@
 {
     "*.ts": [
-        "yarn style:fix",
-        "yarn lint:fix",
-        "yarn test"
+        "npm run style:fix",
+        "npm run lint:fix",
+        "npm run test"
     ]
 }
