@@ -1,0 +1,25 @@
+{
+  "name": "import-cnab",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "homepage": "https://github.com/thallesyasmim/import-cnab#readme",
+  "keywords": [],
+  "author": {
+    "name": "Thalles Gabriel",
+    "email": "thallesgabriel1307@gmail.com",
+    "url": "https://bit.ly/thalles-gabriel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thallesyasmim/import-cnab.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thallesyasmim/import-cnab/issues",
+    "email": "thallesgabriel1307@gmail.com"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
