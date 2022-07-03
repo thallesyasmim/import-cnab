@@ -1,19 +1,9 @@
-import http from 'http'
-import fs from 'fs'
-import { Stream } from 'stream'
-
-const PORT = process.env.PORT || 5858
-
-export const server = http
-  .createServer((req, res) => {
-    const stream = fs.createReadStream(`${__dirname}/../../requirements/CNAB.txt`)
-
-    const writableStream = new Stream.Writable()
-    writableStream._write = (chunk, enconding, next) => {
-      console.log(chunk.toString())
-      next()
-    }
-
-    stream.pipe(writableStream)
-  })
-  .listen(PORT, () => console.log(`Server is running at ${PORT}`))
+import 'reflect-metadata'
+import { PgHelper } from '@/infra/database/typeorm/pg-helper'
+import env from '@/main/config/env'
+;(async () => {
+  await PgHelper.getInstance().connect()
+  const { setupApp } = await import('./config/app')
+  const app = await setupApp()
+  app.listen(env.PORT, () => console.log(`Server running at http://localhost:${env.PORT}`))
+})()
