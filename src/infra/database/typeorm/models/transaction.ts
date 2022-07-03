@@ -3,7 +3,7 @@ import { ShopModel } from './shop'
 import { TransactionTypeModel } from '@/infra/database/typeorm/models'
 import {
   Entity,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
   JoinColumn,
@@ -13,7 +13,7 @@ import {
 
 @Entity({ name: 'transactions' })
 export class TransactionModel implements TransactionData {
-  @PrimaryColumn('uuid')
+  @PrimaryGeneratedColumn('uuid')
   public id: string
 
   @Column()
