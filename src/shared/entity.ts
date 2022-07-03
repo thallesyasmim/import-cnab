@@ -1,9 +1,9 @@
 export abstract class Entity<T> {
-  protected readonly _id: string = null
+  protected readonly _id: string | number = null
   protected readonly _createdAt: Date = null
   public readonly data: T
 
-  constructor(data: T, id: string) {
+  constructor(data: T, id: string | number) {
     this._id = id
     this.data = data
     this._createdAt = new Date()
