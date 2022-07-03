@@ -1,5 +1,7 @@
 import { Cnab } from '@/application/contracts'
+import { injectable } from 'tsyringe'
 
+@injectable()
 export class CnabHelper implements Cnab {
   normalize(register: string): Cnab.Result {
     const type = Number(register.slice(0, 1))
