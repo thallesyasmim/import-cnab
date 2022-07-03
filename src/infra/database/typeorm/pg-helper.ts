@@ -1,5 +1,5 @@
-import { DataSource, DataSourceOptions, ObjectType, Repository } from 'typeorm'
-import ormconfig from '../../../../ormconfig'
+import { DataSource, ObjectType, Repository } from 'typeorm'
+import { pgDataSource } from './data-sources'
 
 export class ConnectionNotFoundError extends Error {
   constructor() {
@@ -21,8 +21,10 @@ export class PgHelper {
 
   async connect(): Promise<void> {
     if (!this.connection) {
-      this.connection = new DataSource(ormconfig as unknown as DataSourceOptions)
+      this.connection = pgDataSource
     }
+
+    await this.connection.initialize()
   }
 
   async disconnect(): Promise<void> {
