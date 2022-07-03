@@ -1,11 +1,13 @@
 import { Either, left, right } from '@/shared/either'
 import { Entity } from '@/shared/entity'
-import { InvalidNameError } from '../errors'
 import { Name } from '@/domain/value-objects'
+import { InvalidNameError } from '../errors'
+import { TransactionModel } from '@/infra/database/typeorm/models'
 
 export interface ShopData {
   name: string
   owner: string
+  transactions: TransactionModel[]
 }
 
 export type ShopErrors = InvalidNameError
@@ -25,6 +27,10 @@ export class Shop extends Entity<ShopData> {
 
   get owner() {
     return this.data.owner
+  }
+
+  get transactions() {
+    return this.data.transactions
   }
 
   get createdAt(): Date {
