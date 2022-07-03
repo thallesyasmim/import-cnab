@@ -4,7 +4,7 @@ import { Entity, PrimaryColumn, Column, CreateDateColumn } from 'typeorm'
 @Entity({ name: 'transaction-types' })
 export class TransactionTypeModel implements TransactionTypeData {
   @PrimaryColumn()
-  public id: string
+  public id: number
 
   @Column()
   public description: string

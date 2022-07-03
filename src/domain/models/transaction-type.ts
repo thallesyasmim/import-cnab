@@ -15,8 +15,8 @@ export class TransactionType extends Entity<TransactionTypeData> {
     super(data, id)
   }
 
-  get id(): string {
-    return this._id
+  get id(): number {
+    return this._id as number
   }
 
   get description(): string {
