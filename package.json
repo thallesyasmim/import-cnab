@@ -28,6 +28,7 @@
     "migration:show": "ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm migration:show -d src/infra/database/typeorm/data-sources/pg.ts",
     "migration:up": "ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm migration:run -d src/infra/database/typeorm/data-sources/pg.ts",
     "migration:down": "ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm migration:revert -d src/infra/database/typeorm/data-sources/pg.ts",
+    "seed": "ts-node -r tsconfig-paths/register  src/infra/database/typeorm/seeds/index.ts",
     "style": "prettier --ignore-path .gitignore --check **/*.ts",
     "style:fix": "prettier --ignore-path .gitignore --write **/*.ts",
     "lint": "eslint --ignore-path .gitignore src tests --ext .ts",
@@ -77,7 +78,6 @@
     "pg": "^8.7.3",
     "reflect-metadata": "^0.1.13",
     "tsyringe": "^4.7.0",
-    "typeorm": "^0.3.7",
-    "typeorm-extension": "^2.1.4"
+    "typeorm": "^0.3.7"
   }
 }
