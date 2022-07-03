@@ -1,13 +1,16 @@
 import { LoadShopsRepository, SaveShopRepository } from '@/application/contracts'
 import { Shop } from '@/domain/models'
-import { Repository } from 'typeorm'
 import { ShopModel } from '../models'
 import { PgHelper } from '../pg-helper'
+
+import { Repository } from 'typeorm'
+import { injectable } from 'tsyringe'
 
 /**
  * ShopTypeormRepository is the real implementation for the shops's repositories interfaces.
  * The [TypeORM]{@link https://typeorm.io/} is being used in the communication with Postgres.
  */
+@injectable()
 export class ShopTypeormRepository implements LoadShopsRepository, SaveShopRepository {
   private repository: Repository<ShopModel>
 
