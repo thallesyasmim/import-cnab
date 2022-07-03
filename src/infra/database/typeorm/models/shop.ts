@@ -14,7 +14,7 @@ export class ShopModel implements ShopData {
   public owner: string
 
   @OneToMany(() => TransactionModel, transaction => transaction.shop)
-  transactions: TransactionModel[]
+  public transactions: TransactionModel[]
 
   @CreateDateColumn({ name: 'created_at' })
   public createdAt: Date
