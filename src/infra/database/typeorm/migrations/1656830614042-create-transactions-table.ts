@@ -12,23 +12,23 @@ export class createTransactionsTable1656830614042 implements MigrationInterface 
             isPrimary: true
           },
           {
-            name: 'typeId',
-            type: 'uuid',
+            name: 'type_id',
+            type: 'int',
             isNullable: false
           },
           {
-            name: 'shopId',
+            name: 'shop_id',
             type: 'uuid',
             isNullable: false
           },
           {
             name: 'date',
-            type: 'datetime',
+            type: 'date',
             isNullable: false
           },
           {
             name: 'value',
-            type: 'double',
+            type: 'decimal',
             isNullable: false
           },
           {
