@@ -4,7 +4,7 @@ import { Entity, PrimaryColumn, Column, CreateDateColumn, OneToMany } from 'type
 
 @Entity({ name: 'shops' })
 export class ShopModel implements ShopData {
-  @PrimaryColumn()
+  @PrimaryColumn('uuid')
   public id: string
 
   @Column()

@@ -13,7 +13,7 @@ import {
 
 @Entity({ name: 'transactions' })
 export class TransactionModel implements TransactionData {
-  @PrimaryColumn()
+  @PrimaryColumn('uuid')
   public id: string
 
   @Column()
