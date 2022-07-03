@@ -1,7 +1,15 @@
-export * from './find-card'
-export * from './find-cpf'
-export * from './find-date'
-export * from './find-owner'
-export * from './find-shop'
-export * from './find-type'
-export * from './find-value'
+export interface Cnab {
+  normalize(register: string): Cnab.Result
+}
+
+export namespace Cnab {
+  export type Result = {
+    type: number
+    date: Date
+    value: number
+    cpf: string
+    card: string
+    owner: string
+    shop: string
+  }
+}
