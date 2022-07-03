@@ -40,8 +40,8 @@ export class Transaction extends Entity<TransactionData> {
     return this.data.value
   }
 
-  get cpf(): number {
-    return Number(this.data.cpf.replace(/\D/g, ''))
+  get cpf(): string {
+    return this.data.cpf.replace(/\D/g, '')
   }
 
   get card(): string {
