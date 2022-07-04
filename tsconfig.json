@@ -25,8 +25,23 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "src/*"
+      "@/application/*": [
+        "src/application/*"
+      ],
+      "@/domain/*": [
+        "src/domain/*"
+      ],
+      "@/infra/*": [
+        "src/infra/*"
+      ],
+      "@/presentation/*": [
+        "src/presentation/*"
+      ],
+      "@/main/*": [
+        "src/main/*"
+      ],
+      "@/shared/*": [
+        "src/shared/*"
       ],
       "@tests/*": [
         "tests/*"

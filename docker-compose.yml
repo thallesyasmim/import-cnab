@@ -1,0 +1,40 @@
+version: '3.9'
+services:
+  db:
+    container_name: import-cnab-db
+    image: postgres:14-alpine
+    restart: always
+    volumes:
+      - data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: cnab
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: cnabdb
+    networks:
+      - cnabnt
+
+  api:
+    container_name: import-cnab-api
+    depends_on:
+      - db
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: import-cnab-api:0.1
+    restart: always
+    env_file: .env
+    environment:
+      DATABASE_URL: postgres://cnab:1234@postgresql:5432/cnabdb
+    ports:
+      - '$PORT:$PORT'
+    networks:
+      - cnabnt
+
+networks:
+  cnabnt:
+    driver: bridge
+
+volumes:
+  data:
