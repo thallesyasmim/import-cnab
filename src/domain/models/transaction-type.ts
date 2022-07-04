@@ -5,7 +5,12 @@ import { Signal } from '@/domain/value-objects'
 
 export interface TransactionTypeData {
   description: string
-  signal: string
+  signal: SignalEnum | string
+}
+
+export enum SignalEnum {
+  PLUS = '+',
+  MINUS = '-'
 }
 
 export type TransactionTypeErrors = InvalidSignalError

@@ -8,6 +8,7 @@ export interface ShopData {
   name: string
   owner: string
   transactions?: TransactionModel[]
+  totalBalance?: number
 }
 
 export type ShopErrors = InvalidNameError
@@ -31,6 +32,10 @@ export class Shop extends Entity<ShopData> {
 
   get transactions() {
     return this.data?.transactions ?? []
+  }
+
+  get totalBalance() {
+    return this.data.totalBalance
   }
 
   get createdAt(): Date {

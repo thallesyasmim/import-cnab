@@ -3,6 +3,7 @@ import { Entity } from '@/shared/entity'
 import { Cpf } from '@/domain/value-objects'
 import { InvalidCpfError, InvalidCardError } from '@/domain/errors'
 import { Card } from '@/domain/value-objects/'
+import { TransactionTypeModel } from '@/infra/database/typeorm/models'
 
 export interface TransactionData {
   typeId: number
@@ -11,6 +12,7 @@ export interface TransactionData {
   value: number
   cpf: string
   card: string
+  type?: TransactionTypeModel
 }
 
 export type TransactionErrors = InvalidCpfError | InvalidCardError
