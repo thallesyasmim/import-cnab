@@ -5,7 +5,8 @@ export const adaptRoute = (controller: Gateway) => {
   return async (req: Request, res: Response) => {
     const request = {
       ...(req.body || {}),
-      ...(req.params || {})
+      ...(req.params || {}),
+      file: req?.file
     }
 
     const httpResponse = await controller.handle(request)
