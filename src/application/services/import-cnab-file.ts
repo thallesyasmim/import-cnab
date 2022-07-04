@@ -1,10 +1,11 @@
 import fs from 'fs'
 import { promisify } from 'util'
+import { randomUUID } from 'crypto'
+
 import { ImportCnabFile } from '@/domain/usecases'
 import { Cnab, SaveShopRepository, SaveTransactionRepository } from '../contracts'
-import { inject, injectable } from 'tsyringe'
 import { Shop, Transaction } from '@/domain/models'
-import { randomUUID } from 'crypto'
+import { inject, injectable } from 'tsyringe'
 
 @injectable()
 export class ImportCnabFileService implements ImportCnabFile {
