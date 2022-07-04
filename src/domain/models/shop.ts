@@ -7,7 +7,7 @@ import { TransactionModel } from '@/infra/database/typeorm/models'
 export interface ShopData {
   name: string
   owner: string
-  transactions: TransactionModel[]
+  transactions?: TransactionModel[]
 }
 
 export type ShopErrors = InvalidNameError
@@ -18,7 +18,7 @@ export class Shop extends Entity<ShopData> {
   }
 
   get id(): string {
-    return this._id
+    return this._id as string
   }
 
   get name() {
@@ -30,7 +30,7 @@ export class Shop extends Entity<ShopData> {
   }
 
   get transactions() {
-    return this.data.transactions
+    return this.data?.transactions ?? []
   }
 
   get createdAt(): Date {

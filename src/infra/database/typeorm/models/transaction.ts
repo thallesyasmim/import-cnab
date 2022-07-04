@@ -29,7 +29,7 @@ export class TransactionModel implements TransactionData {
   public card: string
 
   @Column({ name: 'type_id' })
-  public typeId: string
+  public typeId: number
 
   @JoinColumn({ name: 'type_id' })
   @OneToOne(() => TransactionTypeModel)

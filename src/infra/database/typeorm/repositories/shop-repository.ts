@@ -22,9 +22,19 @@ export class ShopTypeormRepository implements LoadShopsRepository, SaveShopRepos
    * Create method is implemented from SaveShopRepository.
    * @param data Shop credentials
    */
-  async save(data: Shop): Promise<void> {
+  async save(data: Shop): Promise<ShopModel> {
     const shop = this.repository.create(data)
+
+    const shopIfExists = await this.repository.findOneBy({
+      name: shop.name
+    })
+
+    if (shopIfExists) {
+      return shopIfExists
+    }
+
     await this.repository.save(shop)
+    return shop
   }
 
   /**

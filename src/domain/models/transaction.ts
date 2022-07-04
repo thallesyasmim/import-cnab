@@ -5,7 +5,7 @@ import { InvalidCpfError, InvalidCardError } from '@/domain/errors'
 import { Card } from '@/domain/value-objects/'
 
 export interface TransactionData {
-  typeId: string
+  typeId: number
   shopId: string
   date: Date
   value: number
@@ -21,10 +21,10 @@ export class Transaction extends Entity<TransactionData> {
   }
 
   get id(): string {
-    return this._id
+    return this._id as string
   }
 
-  get typeId(): string {
+  get typeId(): number {
     return this.data.typeId
   }
 
