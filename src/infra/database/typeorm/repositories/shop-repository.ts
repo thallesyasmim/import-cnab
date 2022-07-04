@@ -43,7 +43,9 @@ export class ShopTypeormRepository implements LoadShopsRepository, SaveShopRepos
   async load(): Promise<LoadShopsRepository.Result> {
     const shops = await this.repository.find({
       relations: {
-        transactions: true
+        transactions: {
+          type: true
+        }
       }
     })
 
