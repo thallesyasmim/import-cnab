@@ -26,4 +26,5 @@ RUN apk --no-cache -U upgrade
 COPY --chown=node:node --from=dependencies /app/node_modules /home/node/app/node_modules/
 COPY --from=build --chown=node:node /app/dist /home/node/app/dist/
 EXPOSE ${PORT}
-ENTRYPOINT npm run orm migration:run && npm start
+ENTRYPOINT npm run orm migration:run && npm run seed
+CMD npm start
