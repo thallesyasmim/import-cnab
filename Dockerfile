@@ -4,13 +4,13 @@ FROM node:16.15.1-alpine AS dev_dependencies
 WORKDIR /usr/src/import-cnab/
 COPY ./src ./src
 COPY package*.json tsconfig.json ./
-RUN npm install 
+RUN npm install --ignore-scripts 
 
 FROM node:16.15.1-alpine AS dependencies
 WORKDIR /usr/src/import-cnab/
 COPY package*.json ./
 COPY ./src ./src
-RUN npm install --prod
+RUN npm install --ignore-scripts --omit=dev
 
 FROM node:16.15.1-alpine AS build
 WORKDIR /usr/src/import-cnab/
